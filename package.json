@@ -1,0 +1,23 @@
+{
+  "name": "playwright-js-ui-automation",
+  "version": "1.0.0",
+  "description": "Only wbe  UI screens, Page Object Model (POM), and local test data handling",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gajerabrijesh11/playwright-js-ui-automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gajerabrijesh11/playwright-js-ui-automation/issues"
+  },
+  "homepage": "https://github.com/gajerabrijesh11/playwright-js-ui-automation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1"
+  }
+}
