@@ -12,7 +12,7 @@ async registeruser(){
 }
     
     async navigate() {
-        await this.page.goto('https://eventhub.rahulshettyacademy.com/login');
+        await this.page.goto('/login');
     }
 
     

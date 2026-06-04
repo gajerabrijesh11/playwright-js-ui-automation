@@ -1,7 +1,16 @@
 {
   "validUser": {
-    "email": "tamarimailid@example.com",
-    "password": "taro_password_ahi_nakho"
+    "email": "testbg@gmail.com",
+    "password": "gBRij@26"
+  },
+
+  "categorydropdown": {
+    "category1": "All Categories",
+    "category2": "Conference",
+    "category3": "Concert",
+    "category4": "Sports",
+    "category5": "Workshop",
+    "category6": "Festival"
   }
     
 }
