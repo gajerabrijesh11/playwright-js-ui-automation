@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { RegisterPage } = require('../pages/RegisterPage');
+const { RegisterPage } = require('../Pages/RegisterPage');
 const { GenerateData } = require('../utils/GenerateData');
 
 test('User should be able to register successfully to EventHub', async ({ page }) => {
