@@ -24,7 +24,7 @@ class BrowseEventsPage {
         // await this.categoryDropdown.waitFor({ state: 'attached', timeout: 5000 });
         
         await this.categoryDropdown.selectOption({ value: categoryvalue });
-        // await responsePromise;
+        await responsePromise;
     }
 }
 module.exports = { BrowseEventsPage };

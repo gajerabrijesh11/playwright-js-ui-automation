@@ -31,6 +31,7 @@ test('Select Category Dropdown', async ({ page }) => {
     const browseeventspage = new BrowseEventsPage(page);
     await browseeventspage.browseevents();
     await browseeventspage.cetegory(userdata.categorydropdown.category3);
+    await expect(page.getByText('Concert', { exact: true })).toBeVisible();
 });
 
 test.skip('Select City Dropdown', async ({ page }) => {
