@@ -25,6 +25,20 @@
       "expectedcard": "Diwali Mela"
     }
   ],
+  "Combinedropdownselection": [
+    {
+      "scenario": "Conference and hydrabad",
+      "category": "Conference",
+      "city": "Hyderabad",
+      "expectedcard": "World Tech Summit"
+    },
+    {
+      "scenario": "Festival and Delhi",
+      "category": "Festival",
+      "city": "Delhi",
+      "expectedcard": "Diwali Mela"
+    }
+  ],
   "DDTLogindata": [
     {
       "scenario": "Valid Login",

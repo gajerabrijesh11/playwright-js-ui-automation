@@ -3,6 +3,7 @@ const { BrowseEventsPage } = require('../Pages/BrowseEventsPage');
 const { RegisterPage } = require('../Pages/RegisterPage');
 const { LoginPage } = require('../Pages/LoginPage');
 const userdata = require('../test-data/user-data.json');
+const { Combinedropdownselection } = require('../test-data/user-data.json');
 
 test.beforeEach('User login', async ({ page }) => {
     const loginpage = new LoginPage(page);
@@ -25,7 +26,7 @@ for (const search of userdata.SearchEvents) {
 }
 
 for (const categories of userdata.Categorydropdown) {
-    
+
     test(`Select category ${categories.category}`, async ({ page }) => {
         const browseeventspage = new BrowseEventsPage(page);
         await browseeventspage.browseevents();
@@ -37,6 +38,20 @@ for (const categories of userdata.Categorydropdown) {
             await expect(nocards).toBeVisible();
         }
     });
+}
+
+for (const combinedropdown of userdata.Combinedropdownselection) {
+    test(`Select combination ${combinedropdown.scenario}`, async ({ page }) => {
+        const browseeventspage = new BrowseEventsPage(page);
+        await browseeventspage.browseevents();
+        await browseeventspage.category(combinedropdown.category);
+        await browseeventspage.Citycategory(combinedropdown.city);
+        const cardresult = page.getByRole('link', { name: combinedropdown.expectedcard });
+        await expect(cardresult).toBeVisible();
+
+
+    });
+
 }
 
 
