@@ -7,15 +7,15 @@ class RegisterPage {
         this.confirmpasswordInput = page.getByRole('textbox', { name: 'Repeat your password' });
         this.registerButton = page.getByTestId('register-btn');
     }
-async registeruser(){
-    await this.RegisterURL.click();
-}
-    
+    async registeruser() {
+        await this.RegisterURL.click();
+    }
+
     async navigate() {
         await this.page.goto('/login');
     }
 
-    
+
     async register(register, email, password) {
         await this.RegisterURL.click();
         await this.emailInput.fill(email);
@@ -23,6 +23,8 @@ async registeruser(){
         await this.confirmpasswordInput.fill(password);
         await this.registerButton.click();
     }
+
+    
 }
 
 module.exports = { RegisterPage };

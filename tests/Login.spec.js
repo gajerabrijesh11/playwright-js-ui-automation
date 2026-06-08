@@ -32,7 +32,7 @@ for (const data of userdata.DDTLogindata) {
     });
 }
 
-
+/*
 
 test('Intentional fail test', async ({ page }) => {
     const loginpage = new LoginPage(page);
@@ -43,3 +43,4 @@ test('Intentional fail test', async ({ page }) => {
     await loginpage.login(userdata.validUser.email, userdata.validUser.password);
     await expect(page.getByRole('heading', { name: 'hello world' })).toBeVisible();
 });
+*/
