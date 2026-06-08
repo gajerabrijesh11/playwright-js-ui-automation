@@ -3,14 +3,55 @@
     "email": "testbg@gmail.com",
     "password": "gBRij@26"
   },
-
-  "categorydropdown": {
-    "category1": "All Categories",
-    "category2": "Conference",
-    "category3": "Concert",
-    "category4": "Sports",
-    "category5": "Workshop",
-    "category6": "Festival"
-  }
-    
+  "Categorydropdown": [
+    {
+      "category": "Conference",
+      "expectedcard": "World Tech Summit"
+    },
+    {
+      "category": "Concert",
+      "expectedcard": "Monsoon Night"
+    },
+    {
+      "category": "Sports",
+      "expectedcard": "No events found"
+    },
+    {
+      "category": "Workshop",
+      "expectedcard": "No events found"
+    },
+    {
+      "category": "Festival",
+      "expectedcard": "Diwali Mela"
+    }
+  ],
+  "DDTLogindata": [
+    {
+      "scenario": "Valid Login",
+      "email": "testbg@gmail.com",
+      "password": "gBRij@26"
+    },
+    {
+      "scenario": "Invalid Email",
+      "email": "test@gmail.com",
+      "password": "gBRij@26"
+    }
+  ],
+  "SearchEvents": [
+    {
+      "scenario": "Search Mela",
+      "keyword": "mela",
+      "expectedCard": "mela"
+    },
+    {
+      "scenario": "Search Los",
+      "keyword": "los",
+      "expectedCard": "los"
+    },
+    {
+      "scenario": "Search Summit",
+      "keyword": "summit",
+      "expectedCard": "summit"
+    }
+  ]
 }

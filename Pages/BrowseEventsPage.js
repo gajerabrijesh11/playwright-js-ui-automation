@@ -13,11 +13,11 @@ class BrowseEventsPage {
     async browseevents() {
         await this.browseeventsbutton.click();
     }
-    async searchevents() {
-        await this.browseeventssearchbox.fill('Mela');
+    async searchevents(search) {
+        await this.browseeventssearchbox.fill(search);
     }
 
-    async cetegory(categoryvalue){
+    async category(categoryvalue){
          const responsePromise = this.page.waitForResponse(response => 
         response.url().includes('events') && response.status() === 200
     ); 

@@ -12,28 +12,31 @@ test.beforeEach('User login', async ({ page }) => {
 
 });
 
-test('User should be able to browse events successfully', async ({ page }) => {
-    const browseventsPage = new BrowseEventsPage(page);
-    await browseventsPage.browseevents();
-    await expect(page).toHaveURL('/events');
-    await browseventsPage.searchevents();
-    await expect(page.getByRole('link', { name: 'Dilli Diwali Mela' })).toBeVisible();
-    if (page.getByRole('button', { name: 'Clear filters' }).isVisible) {
-        await page.getByRole('button', { name: 'Clear filters' }).click();
+// Search events
+for (const search of userdata.SearchEvents) {
+    test(`Search Events ${search.scenario}`, async ({ page }) => {
+        const browseventsPage = new BrowseEventsPage(page);
+        await browseventsPage.browseevents();
+        await expect(page).toHaveURL('/events');
+        await browseventsPage.searchevents(search.keyword);
+        const eventcard = page.getByRole('link', { name: search.expectedCard });
+        await expect(eventcard).toBeVisible();
+    });
+}
 
-    } else {
-        console.log('Clear filters button is not visible');
-    }
+for (const categories of userdata.Categorydropdown) {
+    
+    test(`Select category ${categories.category}`, async ({ page }) => {
+        const browseeventspage = new BrowseEventsPage(page);
+        await browseeventspage.browseevents();
+        await browseeventspage.category(categories.category);
+        if (categories.expectedcard !== "No events found")
+            await expect(page.getByRole('link', { name: categories.expectedcard })).toBeVisible();
+        else {
+            const nocards = page.getByRole('heading', { name: 'No events found' });
+            await expect(nocards).toBeVisible();
+        }
+    });
+}
 
-});
 
-test('Select Category Dropdown', async ({ page }) => {
-    const browseeventspage = new BrowseEventsPage(page);
-    await browseeventspage.browseevents();
-    await browseeventspage.cetegory(userdata.categorydropdown.category3);
-    await expect(page.getByText('Concert', { exact: true })).toBeVisible();
-});
-
-test.skip('Select City Dropdown', async ({ page }) => {
-
-});
