@@ -53,6 +53,15 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+    {
+      name: 'setup',
+      testMatch: /auth\.setup\.js/,
+    },
+    {
+      name: 'api-tests',
+      testMatch: /.*\.spec\.js/,
+      dependencies: ['setup'],
+    },
 
     /* Test against mobile viewports. */
     // {
