@@ -8,10 +8,6 @@ import { defineConfig, devices } from '@playwright/test';
 // import dotenv from 'dotenv';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -30,7 +26,7 @@ export default defineConfig({
     baseURL: 'https://eventhub.rahulshettyacademy.com/login',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-     
+
     trace: 'retain-on-failure',
     screenshoot: 'only-on-failure',
     video: 'retain-on-failure'
@@ -40,27 +36,36 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'setup',
+      testMatch: /auth\.setup\.js/,
+    },
+    /* ---------------- UI TESTS PROJECTS ---------------- */
+    {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      testIgnore: '**/API_tests/**',
     },
 
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
+      testIgnore: '**/API_tests/**',
     },
 
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
+      testIgnore: '**/API_tests/**',
     },
+  
+    /* ---------------- API TESTS PROJECT ---------------- */
     {
-      name: 'setup',
-      testMatch: /auth\.setup\.js/,
-    },
-    {
-      name: 'api-tests',
-      testMatch: /.*\.spec\.js/,
+      name: 'api_tests',
+      testMatch: '**/API_tests/**',
       dependencies: ['setup'],
+      use: {
+        browserName: undefined
+      }
     },
 
     /* Test against mobile viewports. */
