@@ -1,7 +1,9 @@
 {
   "validUser": {
     "email": "testbg@gmail.com",
-    "password": "gBRij@26"
+    "password": "gBRij@26",
+    "Invalidemail": "test@gmmail.com",
+    "Invalidpassword": "test123"
   },
   "Categorydropdown": [
     {

@@ -3,7 +3,7 @@ const userdata = require('../../test-data/user-data.json');
 const tokenState = require('../../test-data/token-state.json');
 
 // Attansion: We used request as fixture insead of page.
-test('Verify Login API - Pure Backend Test', async ({ request }) => {
+test('Login API - Valid user', async ({ request }) => {
 
     console.log("Sending POST request to Login API...");
 
@@ -34,3 +34,34 @@ test('Verify Login API - Pure Backend Test', async ({ request }) => {
 });
 
 
+test('Login API - Invalid Email', async ({ request }) => {
+    console.log("Sending POST request to Login API...");
+    const response = await request.post('https://api.eventhub.rahulshettyacademy.com/api/auth/login', {
+        data: {
+            email: userdata.validUser.Invalidemail,
+            password: userdata.validUser.password
+        }
+    });
+
+console.log(`Response Status Code: ${response.status()}`);
+    expect(response.status()).toBe(400);
+    const responseBody = await response.json();
+    console.log("Full JSON Response from Server:", responseBody)
+    // expect(responseBody.message).toBe('Invalid email or password');
+});
+
+test('Login API - Invalid Password', async ({ request }) => {
+    console.log("Sending POST request to Login API...");
+    const response = await request.post('https://api.eventhub.rahulshettyacademy.com/api/auth/login', {
+        data: {
+            email: userdata.validUser.email,
+            password: userdata.validUser.Invalidpassword
+        }
+    });
+
+console.log(`Response Status Code: ${response.status()}`);
+    expect(response.status()).toBe(400);
+    const responseBody = await response.json();
+    console.log("Full JSON Response from Server:", responseBody)
+    // expect(responseBody.message).toBe('Invalid email or password');
+});

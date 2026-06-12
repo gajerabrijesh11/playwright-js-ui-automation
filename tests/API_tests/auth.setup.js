@@ -19,13 +19,13 @@ test('Authenticate and Save Token', async ({ request }) => {
     expect(response.ok()).toBeTruthy();
 
     const responseBody = await response.json();
-    console.log("🔍 Full Login Response Body:", responseBody);
+    console.log("Full Login Response Body:", responseBody);
 
     const authToken = responseBody.token || responseBody.accessToken || (responseBody.data && responseBody.data.token);
-    console.log(`🔑 Extracted Token: ${authToken}`);
+    console.log(`Extracted Token: ${authToken}`);
 
     if (!authToken) {
-        throw new Error("❌ Error: Token is undefined!");
+        throw new Error("Error: Token is undefined!");
     }
 
     const filePath = path.join(__dirname, '../../test-data/token-state.json');
