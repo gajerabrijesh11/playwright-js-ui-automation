@@ -6,7 +6,7 @@ const { EventBookingPage } = require('../Pages/EventBookingPage');
 const userdata = require('../test-data/user-data.json');
 
 // Login once before every scenario (reuses the existing pages)
-test.beforeEach.skip(async ({ page }) => {
+test.skip(async ({ page }) => {
     await new RegisterPage(page).navigate();
     await new LoginPage(page).login(userdata.validUser.email, userdata.validUser.password);
 });
