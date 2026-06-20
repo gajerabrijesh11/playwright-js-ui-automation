@@ -1,5 +1,11 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import { defineBddConfig } from 'playwright-bdd';
+
+const myBddTestDir = defineBddConfig({
+  features: './BDD_Layer/features/**/*.feature', // તમારું ફીચર ફોલ્ડર
+  steps: './BDD_Layer/Steps/**/*.js',
+});
 
 /**
  * Read environment variables from file.
@@ -33,8 +39,8 @@ export default defineConfig({
 
   },
 
-  /* Configure projects for major browsers */
-  projects: [
+  // Configure projects for major browsers 
+  projects: [                                          // before every test run this part will run from auth.setup.js and will generate login token
     {
       name: 'setup',
       testMatch: /auth\.setup\.js/,
@@ -43,21 +49,21 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-      testIgnore: '**/API_tests/**',
+      testIgnore: ['**/API_tests/**', '**/.features-gen/**']  
     },
 
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
-      testIgnore: '**/API_tests/**',
+      testIgnore: ['**/API_tests/**', '**/.features-gen/**']
     },
 
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-      testIgnore: '**/API_tests/**',
+      testIgnore: ['**/API_tests/**', '**/.features-gen/**']
     },
-  
+
     /* ---------------- API TESTS PROJECT ---------------- */
     {
       name: 'api_tests',
@@ -65,7 +71,16 @@ export default defineConfig({
       dependencies: ['setup'],
       use: {
         browserName: undefined
-      }
+      },
+
+    },
+    {
+      name: 'bdd-tests',
+      testDir: myBddTestDir,
+      use: { ...devices['Desktop Chrome'] },
+
+      // If i want to use old login token then i need to un-comment below line
+      // dependencies: ['setup'],
     },
 
     /* Test against mobile viewports. */

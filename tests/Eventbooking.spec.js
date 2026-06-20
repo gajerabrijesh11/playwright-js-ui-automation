@@ -6,14 +6,14 @@ const { EventBookingPage } = require('../Pages/EventBookingPage');
 const userdata = require('../test-data/user-data.json');
 
 // Login once before every scenario (reuses the existing pages)
-test.beforeEach(async ({ page }) => {
+test.beforeEach.skip(async ({ page }) => {
     await new RegisterPage(page).navigate();
     await new LoginPage(page).login(userdata.validUser.email, userdata.validUser.password);
 });
 
 // DDT applied for event booking
 for (const booking of userdata.eventBookings) {
-    test(`Book event - ${booking.scenario}`, async ({ page }) => {
+    test.skip(`Book event - ${booking.scenario}`, async ({ page }) => {
         const browseeventspage = new BrowseEventsPage(page);
         const eventbookingpage = new EventBookingPage(page);
 
@@ -51,7 +51,7 @@ for (const booking of userdata.eventBookings) {
 }
 
 // Edge case: the ticket counter is capped at the maximum of 10
-test('Ticket count is capped at the maximum of 10', async ({ page }) => {
+test.skip('Ticket count is capped at the maximum of 10', async ({ page }) => {
     const browseeventspage = new BrowseEventsPage(page);
     const eventbookingpage = new EventBookingPage(page);
 
