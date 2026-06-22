@@ -6,7 +6,7 @@ const { BookEventPage } = require('../Pages/BookeventPage');
 
 const userdata = require('../test-data/user-data.json');
 
-test('User login', async ({ page }) => {
+test('Event Booking', async ({ page }) => {
     const loginpage = new LoginPage(page);
     const registerpage = new RegisterPage(page);
     const browseEventpage = new BrowseEventsPage(page);
