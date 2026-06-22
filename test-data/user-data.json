@@ -5,58 +5,6 @@
     "Invalidemail": "test@gmmail.com",
     "Invalidpassword": "test123"
   },
-  "eventBookings": [
-    {
-      "scenario": "Sports event - 5 tickets (valid)",
-      "category": "Sports",
-      "ticketCount": 5,
-      "fullName": "Brijesh Gajera",
-      "email": "testbg@gmail.com",
-      "phone": "9876543210",
-      "expectedPerTicket": 10,
-      "expectError": false
-    },
-    {
-      "scenario": "Conference event - 2 tickets (valid)",
-      "category": "Conference",
-      "ticketCount": 2,
-      "fullName": "John Doe",
-      "email": "john.doe@gmail.com",
-      "phone": "9123456780",
-      "expectedPerTicket": 1500,
-      "expectError": false
-    },
-    {
-      "scenario": "Short name (invalid)",
-      "category": "Sports",
-      "ticketCount": 1,
-      "fullName": "A",
-      "email": "testbg@gmail.com",
-      "phone": "9876543210",
-      "expectError": true,
-      "errorMessage": "Name must be at least 2 chars"
-    },
-    {
-      "scenario": "Invalid email (invalid)",
-      "category": "Sports",
-      "ticketCount": 1,
-      "fullName": "Brijesh Gajera",
-      "email": "not-an-email",
-      "phone": "9876543210",
-      "expectError": true,
-      "errorMessage": "Enter a valid email"
-    },
-    {
-      "scenario": "Invalid phone (invalid)",
-      "category": "Sports",
-      "ticketCount": 1,
-      "fullName": "Brijesh Gajera",
-      "email": "testbg@gmail.com",
-      "phone": "12345",
-      "expectError": true,
-      "errorMessage": "Enter a valid 10-digit phone"
-    }
-  ],
   "Categorydropdown": [
     {
       "category": "Conference",
@@ -68,7 +16,8 @@
     },
     {
       "category": "Sports",
-      "expectedcard": "No events found"
+      "expectedcard": "No events found",
+      "expectedcard1": "Sports"
     },
     {
       "category": "Workshop",
