@@ -153,7 +153,24 @@ If you are on a CI machine or Linux, you may also need system dependencies:
 npx playwright install --with-deps
 ```
 
-After these four steps, the project is ready to run.
+Step 5: Install Cucumber BDD dependencies
+For BDD testing with Cucumber, the project uses `playwright-bdd`. Install it with:
+
+```
+npm i -D playwright-bdd
+```
+
+This installs the `playwright-bdd` library which automatically converts the Gherkin
+feature files (plain English test steps in `.feature` files) into executable 
+Playwright tests. The library generates test files inside the `.features-gen` folder.
+
+To verify it is installed:
+
+```
+npm list playwright-bdd
+```
+
+After these five steps, the project is ready to run.
 
 
 ## 5. How to Run Tests (All Commands)
