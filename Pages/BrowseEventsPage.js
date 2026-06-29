@@ -17,7 +17,11 @@ class BrowseEventsPage {
         await this.browseeventsbutton.click();
     }
     async searchevents(search) {
+        const responsePromise = this.page.waitForResponse(response =>
+            response.url().includes('events') && response.status() === 200
+        );
         await this.browseeventssearchbox.fill(search);
+        await responsePromise;
     }
 
     async category(categoryvalue) {

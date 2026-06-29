@@ -20,7 +20,7 @@ for (const search of userdata.SearchEvents) {
         await browseventsPage.browseevents();
         await expect(page).toHaveURL('/events');
         await browseventsPage.searchevents(search.keyword);
-        const eventcard = page.getByRole('link', { name: search.expectedCard });
+        const eventcard = page.getByRole('link', { name: search.expectedCard, exact: true });
         await expect(eventcard).toBeVisible();
     });
 }

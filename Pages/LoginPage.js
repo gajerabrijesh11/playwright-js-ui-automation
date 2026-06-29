@@ -1,8 +1,8 @@
 class LoginPage {
-    constructor(page, request, context) {
+    constructor(page) {
         this.page = page;
-        this.request = request;
-        this.context = context;
+        // this.request = request;
+        // this.context = context;
 
         this.emailInput = page.getByRole('textbox', { name: 'Email' });
         this.passwordInput = page.getByRole('textbox', { name: 'Password' });
